@@ -2,7 +2,7 @@
   <div class="ui input controller">
     <input
       type="text"
-      placeholder="Search..."
+      placeholder='Example: "2 3 13 23 30"'
       :value="minutesState.inputValue"
       @input="(event) => onAddMinutes(event)"
     />
