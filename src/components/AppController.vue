@@ -4,7 +4,7 @@
       type="text"
       placeholder="Search..."
       :value="minutesState.inputValue"
-      @input="(event) => minutesState.addMinutes(event.target.value)"
+      @input="(event) => onAddMinutes(event)"
     />
     <label>Please, add minutes separated with spaces. For example: "13 4 9 10"</label>
   </div>
@@ -13,6 +13,12 @@
 <script setup lang="ts">
 import { useMinutesStore } from '../stores/minutes'
 const minutesState = useMinutesStore()
+
+function onAddMinutes(event: Event) {
+  if (event.target) {
+    minutesState.addMinutes((event.target as HTMLInputElement).value)
+  }
+}
 </script>
 
 <style scoped>
